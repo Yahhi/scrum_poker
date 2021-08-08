@@ -17,19 +17,26 @@ class TaskDetailsPage extends StatelessWidget {
         body: Padding(
           padding: Constants.bodyPaddding,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (task.description != null) ...[
-                Text(
-                  'Description:',
-                  style: Theme.of(context).textTheme.headline6,
-                ),
+                const Text('Description:'),
                 const SizedBox(
                   height: Constants.fieldVerticalSpace,
                 ),
-                Text(task.description!),
+                Text(
+                  task.description!,
+                  style: Theme.of(context).textTheme.headline6,
+                ),
                 const SizedBox(height: Constants.fieldVerticalSpace)
               ],
-              if (task.estimation != 0) Text('Estimation: ${task.estimation}'),
+              if (task.estimation != 0) ...[
+                const Text('Estimation:'),
+                Text(
+                  task.estimation.toString(),
+                  style: Theme.of(context).textTheme.headline6,
+                )
+              ],
             ],
           ),
         ),

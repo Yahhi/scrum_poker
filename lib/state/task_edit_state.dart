@@ -19,6 +19,7 @@ abstract class _TaskEditState extends NetworkState with DisposableState, Store {
       estimationController = TextEditingController();
     } else {
       titleController = TextEditingController(text: editedTask!.title ?? '');
+      title = editedTask!.title;
       descriptionController = TextEditingController(text: editedTask!.description);
       estimationController = TextEditingController(text: editedTask!.estimation.toString());
     }
